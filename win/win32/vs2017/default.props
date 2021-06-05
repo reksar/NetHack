@@ -4,7 +4,8 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset Condition="'$(PLATFORM_TOOLSET)' != ''">$(PLATFORM_TOOLSET)</PlatformToolset>
+    <PlatformToolset Condition="'$(PLATFORM_TOOLSET)' == ''">v141</PlatformToolset>
     <LocalDebuggerWorkingDirectory>$(BinDir)</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'" >
