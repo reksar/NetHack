@@ -6,11 +6,9 @@ set build=%NetHackRoot%win\win32\vs\build-project.bat
 set uname=you
 
 rem ---------------------------------------------------------------------------
-rem Build the NetHack if it does not exist.
-
 if not exist "%NetHack%" (
   echo NetHack does not exist, trying to build ...
-  %build%
+  call "%build%"
 )
 
 rem ---------------------------------------------------------------------------
