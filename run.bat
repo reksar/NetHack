@@ -28,4 +28,4 @@ if exist "%SavedProgress%" (
 
 rem ---------------------------------------------------------------------------
 set NETHACKOPTIONS=legacy:false
-%NetHack% -u %uname% -@
+"%NetHack%" -u %uname% -@
