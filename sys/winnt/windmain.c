@@ -630,9 +630,7 @@ attempt_restore:
             You("are in non-scoring discovery mode.");
     }
 
-        //	iflags.debug_fuzzer = TRUE;
-
-        moveloop(resuming);
+    moveloop(resuming);
     nethack_exit(EXIT_SUCCESS);
     /*NOTREACHED*/
     return 0;
