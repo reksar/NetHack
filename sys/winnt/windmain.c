@@ -630,6 +630,11 @@ attempt_restore:
             You("are in non-scoring discovery mode.");
     }
 
+    for (int x = 0; x < COLNO; x++) 
+        for(int y = 0; y < ROWNO; y++) 
+            map_background(x, y, 1);
+    redraw_map();
+
     moveloop(resuming);
     nethack_exit(EXIT_SUCCESS);
     /*NOTREACHED*/
