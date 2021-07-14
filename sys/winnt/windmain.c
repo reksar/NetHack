@@ -635,6 +635,10 @@ attempt_restore:
             map_location(x, y, 1);
     redraw_map();
 
+    // Our code must be independed from main game loop, but now it is not, 
+    // because some displaying routines are hidden there.
+    getch(); return;
+
     moveloop(resuming);
     nethack_exit(EXIT_SUCCESS);
     /*NOTREACHED*/
