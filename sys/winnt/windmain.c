@@ -630,14 +630,32 @@ attempt_restore:
             You("are in non-scoring discovery mode.");
     }
 
-    for (int x = 0; x < COLNO; x++) 
-        for(int y = 0; y < ROWNO; y++) 
-            map_location(x, y, 1);
+    for (int y = 0; y < ROWNO; ++y)
+        for (int x = 1; x < COLNO; ++x)
+            map_location(x, y, TRUE);
+
+    // Here we save some values and set these to stubs for the redraw_map().
+
+    restoring = FALSE; 
+
+    xchar x_back = u.ux;
+    u.ux = TRUE;
+
+    d_level *z0_back = &u.uz0;
+    u.uz0 = u.uz;
+
     redraw_map();
 
-    // Our code must be independed from main game loop, but now it is not, 
-    // because some displaying routines are hidden there.
-    getch(); return;
+    // Restore saved values.
+    u.ux = x_back;
+    u.uz0 = *z0_back;
+
+    // We need it for calling the really_move_cursor() -> back_buffer_flip(),
+    // because the back_buffer_flip() does not exists in included headers and
+    // we can not call it here directly.
+    synch_cursor();
+
+    getch();
 
     moveloop(resuming);
     nethack_exit(EXIT_SUCCESS);
