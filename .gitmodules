@@ -1,3 +1,0 @@
-[submodule "win/win32/vs/vscmd"]
-	path = win/win32/vs/vscmd
-	url = https://github.com/reksar/vscmd
