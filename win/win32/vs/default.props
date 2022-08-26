@@ -4,8 +4,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset Condition="'$(PLATFORM_TOOLSET)' != ''">$(PLATFORM_TOOLSET)</PlatformToolset>
-    <PlatformToolset Condition="'$(PLATFORM_TOOLSET)' == ''">v141</PlatformToolset>
+    <PlatformToolset>$([MSBuild]::ValueOrDefault('$(PLATFORM_TOOLSET)','v143'))</PlatformToolset>
     <LocalDebuggerWorkingDirectory>$(BinDir)</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'" >
@@ -15,5 +14,4 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
-
 </Project>
