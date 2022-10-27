@@ -1,12 +1,16 @@
 @echo off
 
+rem  --------------------------------------------------------------------------
+rem  Builds the NetHack with portable MS Visual Studio tools.
 rem  NOTE: init the `vcvars` before!
+rem  --------------------------------------------------------------------------
 
 setlocal
-set root=%~dp0
-set vs=%root%win\win32\vs
 
-if "%Platform%"=="x86" (
+set root=%~dp0
+set "vs=%root%win\win32\vs"
+
+if "%Platform%" == "x86" (
   set winx=Win32
 ) else (
   set winx=%Platform%
